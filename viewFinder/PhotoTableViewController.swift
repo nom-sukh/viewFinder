@@ -54,7 +54,6 @@ class PhotoTableViewController: UITableViewController
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        // #warning Incomplete implementation, return the number of rows
         return photos.count
     }
 
@@ -74,5 +73,22 @@ class PhotoTableViewController: UITableViewController
             }
         }
         return cell
+    }
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath)
+    {
+        if editingStyle == .delete
+        {
+            if let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
+            {
+                let photoToDelete = photos[indexPath.row]
+                context.delete(photoToDelete)
+                (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
+                getPhotos()
+            }
+        }
+    }
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool
+    {
+        return true
     }
 }
