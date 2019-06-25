@@ -94,6 +94,9 @@
                                 <state key="normal" title="Save">
                                     <color key="titleColor" red="0.91954744170000002" green="0.68698219360000001" blue="0.64376032979999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="savePhotoTapped:" destination="M8K-Ho-2R2" eventType="touchUpInside" id="fKD-Ak-hZ1"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tta-Sv-WeZ">
                                 <rect key="frame" x="38" y="811" width="76" height="38"/>
@@ -112,6 +115,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Add New Photo" id="GeX-xj-yAO"/>
                     <connections>
+                        <outlet property="captionText" destination="c7D-zE-Mg2" id="Ui3-7P-HKh"/>
                         <outlet property="imageView" destination="nt1-JG-Qra" id="Ry9-VJ-9Jl"/>
                     </connections>
                 </viewController>
